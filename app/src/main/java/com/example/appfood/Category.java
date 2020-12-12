@@ -1,5 +1,7 @@
 package com.example.appfood;
 
+import java.util.List;
+
 public class Category {
     private int resourceId;
     private String title;
@@ -7,6 +9,9 @@ public class Category {
     public Category(int resourceId, String title) {
         this.resourceId = resourceId;
         this.title = title;
+    }
+
+    public Category() {
     }
 
     public int getResourceId() {
