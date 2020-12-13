@@ -15,7 +15,7 @@
     <View
         android:id="@+id/view2"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         android:background="@color/red"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
@@ -23,14 +23,15 @@
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="0dp"
-        android:layout_height="45dp"
+        android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/round"
         android:drawableLeft="@drawable/ic_baseline_search_24"
         android:ems="10"
-        android:hint="Search"
+        android:textSize="13sp"
+        android:hint="Search for cuisine, name, address"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
         android:textColor="@color/black"
@@ -38,25 +39,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:srcCompat="@drawable/banner" />
+        app:layout_constraintTop_toBottomOf="@+id/view2">
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/banner" />
+    </androidx.cardview.widget.CardView>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_rcv"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
         tools:layout_editor_absoluteX="0dp" />
 
     <View
