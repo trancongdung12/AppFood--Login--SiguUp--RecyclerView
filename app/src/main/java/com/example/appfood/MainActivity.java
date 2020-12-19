@@ -12,22 +12,21 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText email ,password;
+    private EditText email ,password;
     DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        email = findViewById(R.id.emailLogin);
-        password = findViewById(R.id.passwordLogin);
-        DB = new DBHelper(this);
         setContentView(R.layout.activity_login);
+        email = (EditText) findViewById(R.id.emailLogin);
+        password = (EditText)findViewById(R.id.passwordLogin);
+        DB = new DBHelper(this);
 
         Button next = (Button) findViewById(R.id.login);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                String  emailLo = email.getText().toString();
+                String emailLo = email.getText().toString();
                 String  passwordLo = password.getText().toString();
 
 
@@ -35,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Enter all the fields", Toast.LENGTH_SHORT).show();
                 }else{
                     Boolean checkLogin = DB.checkUsernamePassword(emailLo,passwordLo);
-                    if(emailLo == "1"){
+                    if(checkLogin == true){
                         Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-//                        Intent myIntent = new Intent(getApplicationContext(), AppActivity.class);
-//                        startActivity(myIntent);
+                        Intent myIntent = new Intent(getApplicationContext(), AppActivity.class);
+                        startActivity(myIntent);
                     }else{
                         Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                     }
