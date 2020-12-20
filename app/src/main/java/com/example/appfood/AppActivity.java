@@ -1,15 +1,21 @@
 package com.example.appfood;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +38,9 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
 
         rcvCatecvory = findViewById(R.id.main_rcv);
         arrayList = new ArrayList<>();
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
         rcvCatecvory.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false));
         rcvCatecvory.setItemAnimator(new DefaultItemAnimator());
@@ -111,4 +120,22 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
         }
         gridLayoutManager.scrollToPositionWithOffset(index,0);
     }
+
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            switch (item.getItemId()){
+                case R.id.home:
+                    Toast.makeText(AppActivity.this, "Home", Toast.LENGTH_SHORT).show(); break;
+                case R.id.profile:
+                    Intent myIntent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    startActivity(myIntent);
+                    overridePendingTransition(0, 0);
+                    break;
+            }
+            return true;
+        }
+    };
 }

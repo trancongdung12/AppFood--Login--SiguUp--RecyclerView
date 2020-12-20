@@ -110,25 +110,23 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_food"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="403dp"
+        android:layout_height="250dp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="10dp" />
+        tools:layout_editor_absoluteX="9dp" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="680dp">
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="680dp" />
-    </RelativeLayout>
+        android:layout_gravity="bottom"
+        android:background="@color/red"     
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@+id/rcv_food"
+        app:menu="@menu/bottom_nav" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
